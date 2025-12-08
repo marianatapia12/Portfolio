@@ -13,43 +13,83 @@ body {
 /* ==============================
    PORTADA
    ============================== */
-
-.portada {
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    padding-left: 90px;
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #003399; /* azul rey */
 }
 
-.portada-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.titulo-portada {
-    font-size: 150px;
-    line-height: 0.85;
-    color: #21406c; /* azul similar al de tu diseño */
-    margin: 0;
-    font-weight: 400;
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
 }
 
-.anio-ovalo {
-    display: inline-block;
-    padding: 12px 35px;
-    border: 2px solid #21406c;
-    color: #21406c;
-    font-size: 26px;
-    border-radius: 40px;
-    width: fit-content;
+/* Barra superior */
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--accent);
+  padding: 15px 20px;
 }
 
-.nombre {
-    font-size: 22px;
-    color: #21406c;
-    margin-top: 10px;
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sección principal */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.hero .year {
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-top: 10px;
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--accent);
 }
 
 
