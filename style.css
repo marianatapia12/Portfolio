@@ -1,13 +1,105 @@
+/* Importación de tipografía parecida */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+/* Configuración general */
 body {
-    font-family: Arial;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #d9d7cd;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2e2e2e;
 }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+/* PORTADA */
+.portada {
+    height: 100vh;
+    background-color: white;
+    padding: 80px;
+    text-align: left;
+}
+
+.portada h1 {
+    font-size: 120px;
+    line-height: 0.8;
+    color: #21406c;
+    margin: 0;
+}
+
+.portada .anio {
+    margin-top: 40px;
+    display: inline-block;
+    border: 1px solid #21406c;
+    padding: 8px 25px;
+    border-radius: 20px;
+    color: #21406c;
+    font-size: 20px;
+}
+
+.portada .nombre {
+    margin-top: 40px;
+    font-size: 20px;
+    color: #21406c;
+}
+
+/* PRESENTACIÓN */
+.presentacion {
+    padding: 80px;
+}
+
+.presentacion h2 {
+    font-size: 70px;
+    line-height: 0.9;
+    color: #5f6d46;
+    margin-bottom: 40px;
+}
+
+.presentacion-contenido {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.foto {
+    width: 250px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.texto {
+    max-width: 600px;
+    font-size: 20px;
+}
+
+/* CONTENIDO */
+.contenido {
+    padding: 80px;
+    text-align: center;
+}
+
+.contenido h2 {
+    font-size: 70px;
+    color: #5f6d46;
+}
+
+.contenido ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.contenido li {
+    font-size: 26px;
+    margin: 20px 0;
+    color: #1d3159;
+}
+
+/* EDITORIAL */
+.editorial {
+    padding: 80px;
+}
+
+.editorial h2 {
+    font-size: 90px;
+    color: #5f6d46;
 }
