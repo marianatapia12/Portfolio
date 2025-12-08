@@ -10,36 +10,48 @@ body {
     color: #2e2e2e;
 }
 
-/* PORTADA */
+/* ==============================
+   PORTADA
+   ============================== */
+
 .portada {
     height: 100vh;
-    background-color: white;
-    padding: 80px;
-    text-align: left;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: 90px;
 }
 
-.portada h1 {
-    font-size: 120px;
-    line-height: 0.8;
-    color: #21406c;
+.portada-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.titulo-portada {
+    font-size: 150px;
+    line-height: 0.85;
+    color: #21406c; /* azul similar al de tu diseño */
     margin: 0;
+    font-weight: 400;
 }
 
-.portada .anio {
-    margin-top: 40px;
+.anio-ovalo {
     display: inline-block;
-    border: 1px solid #21406c;
-    padding: 8px 25px;
-    border-radius: 20px;
+    padding: 12px 35px;
+    border: 2px solid #21406c;
     color: #21406c;
-    font-size: 20px;
+    font-size: 26px;
+    border-radius: 40px;
+    width: fit-content;
 }
 
-.portada .nombre {
-    margin-top: 40px;
-    font-size: 20px;
+.nombre {
+    font-size: 22px;
     color: #21406c;
+    margin-top: 10px;
 }
+
 
 /* PRESENTACIÓN */
 .presentacion {
