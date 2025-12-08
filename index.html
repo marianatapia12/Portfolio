@@ -1,70 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio — Mariana Tapia</title>
-  <!-- Tipografía Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Mariana - Diseño Gráfico</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --bg-white: #ffffff;
+            --bg-sage: #d6d8d1; /* El color verdoso/gris del fondo */
+            --text-blue: #1a3c5e; /* El azul oscuro del texto */
+            --text-dark: #333333;
+            --accent-blue: #1a3c5e;
+            --font-display: 'Bodoni Moda', serif; /* Para títulos grandes */
+            --font-body: 'Lora', serif; /* Para textos pequeños */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-blue);
+            overflow-x: hidden;
+        }
+
+        /* Efecto de scroll suave entre secciones */
+        html {
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* --- UTILIDADES GRAFICAS (Líneas decorativas SVG) --- */
+        .decoration-line {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* --- SECCIÓN 1: PORTADA --- */
+        #cover {
+            background-color: var(--bg-white);
+            align-items: center;
+            text-align: center;
+        }
+
+        .cover-content {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+        }
+
+        h1.portfolio-title {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 12vw, 10rem); /* Responsivo pero gigante */
+            line-height: 0.85;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            text-align: left;
+            position: relative;
+        }
+
+        .title-part-2 {
+            display: block;
+            margin-left: 15%; /* Desplaza la segunda línea a la derecha */
+        }
+
+        .year-pill {
+            display: inline-block;
+            border: 1px solid var(--text-blue);
+            border-radius: 50px;
+            padding: 5px 25px;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            position: absolute;
+            top: 55%;
+            left: 2%;
+        }
+
+        .author-info {
+            position: absolute;
+            top: 20%;
+            right: 0;
+            text-align: right;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            color: var(--text-blue);
+        }
+
+        .author-info span {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* --- SECCIÓN 2: SOBRE MÍ --- */
+        #about {
+            background-color: var(--bg-sage);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Foto estilo Polaroid */
+        .polaroid-wrapper {
+            position: relative;
+            flex: 1;
+            transform: rotate(-5deg); /* Inclinación de la foto */
+            z-index: 2;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 50px 15px; /* Padding inferior más grande para efecto polaroid */
+            box-shadow: 5px 10px 15px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%); /* Un toque sutil vintage */
+        }
+
+        .about-text {
+            flex: 1.5;
+            z-index: 2;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            font-weight: 400;
+            position: absolute;
+            top: -80px;
+            left: 0;
+            width: 100%;
+        }
+
+        .bio-p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 450px;
+            text-align: justify;
+        }
+
+        .contact-section h4, .skills-section h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--text-blue);
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .contact-info div {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 3px;
+        }
+
+        .skills-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .skill-box {
+            background: #1a1a1a; /* Iconos oscuros */
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        /* Decoraciones de fondo (garabatos) */
+        .scribble-1 {
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            width: 200px;
+            opacity: 0.6;
+        }
+
+        /* --- SECCIÓN 3: CONTENIDO --- */
+        #content {
+            background-color: var(--bg-sage);
+        }
+
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 80%;
+            position: relative;
+        }
+
+        h2.section-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .toc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            position: relative;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #000;
+        }
+
+        /* Posicionamiento diagonal manual para imitar la imagen */
+        .toc-item:nth-child(1) { margin-left: 10%; }
+        .toc-item:nth-child(2) { margin-left: 40%; }
+        .toc-item:nth-child(3) { margin-left: 70%; }
+
+        .dot {
+            width: 25px;
+            height: 25px;
+            background-color: var(--text-blue);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* --- SECCIÓN 4: EDITORIAL --- */
+        #editorial {
+            background-color: var(--bg-sage);
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2.editorial-huge {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 400;
+            letter-spacing: -2px;
+            z-index: 2;
+        }
+
+        .line-decoration-left {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 80%;
+            width: auto;
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .portfolio-title { font-size: 4rem; }
+            .year-pill { position: relative; top: 0; left: 0; margin: 20px 0; }
+            .author-info { position: relative; text-align: center; margin-top: 10px; }
+            
+            #about { padding: 20px; height: auto; min-height: 100vh; }
+            .about-container { flex-direction: column; padding-top: 100px; }
+            .about-title { font-size: 2.5rem; top: 20px; text-align: center; position: absolute; }
+            .polaroid-wrapper { transform: rotate(0); width: 80%; }
+            
+            .toc-item { margin-left: 0 !important; justify-content: center; }
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Barra superior -->
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#contact">Contacto</a>
-    </nav>
-  </header>
 
-  <!-- Primera sección -->
-  <section id="inicio" class="hero">
-    <h1>PORTAFOLIO</h1>
-    <h2>MARIANA TAPIA</h2>
-    <h3 class="year">2025</h3>
-    <p class="subtitle">Diseñadora gráfica</p>
-  </section>
-  <body>
-      
-    <!-- PRESENTACIÓN -->
-    <section class="presentacion">
-        <h2>HOLA<br>SOY MARIANA</h2>
-
-        <div class="presentacion-contenido">
-            <img src="IMG_0084.jpeg" class="foto" alt="Foto de Mariana">
-
-            <p class="texto">
-                Soy una estudiante de Diseño Gráfico, interesada en la comunicación visual,
-                la ilustración y la creatividad. Me encuentro en constante aprendizaje,
-                explorando distintas áreas del diseño con el fin de lograr conectar de manera
-                estética y funcional.
-                <br><br>
-                <strong>Contacto:</strong><br>
-                marialex_aas@hotmail.com<br>
-                55 2104 5149
-                <br><br>
-                <strong>Habilidades técnicas:</strong><br>
-                Illustrator · Photoshop · InDesign
-            </p>
+    <section id="cover">
+        <div class="cover-content">
+            <h1 class="portfolio-title">
+                PORT<br>
+                <span class="title-part-2">FOLIO</span>
+            </h1>
+            
+            <div class="year-pill">2025</div> <div class="author-info">
+                Mariana Tapia <span>|</span> Diseñadora Gráfica
+            </div>
+            
+            <svg class="decoration-line" style="bottom:-20px; left:0; width:150px;" viewBox="0 0 100 50">
+                <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#1a3c5e" stroke-width="2"/>
+            </svg>
         </div>
     </section>
 
-    <!-- CONTENIDO -->
-    <section class="contenido">
-        <h2>CONTENIDO</h2>
-        <ul>
-            <li>Información</li>
-            <li>Editorial</li>
-            <li>Ilustraciones</li>
-        </ul>
+    <section id="about">
+        <div class="about-container">
+            <h2 class="about-title">HOLA<br>SOY MARIANA</h2>
+            
+            <svg class="scribble-1" viewBox="0 0 200 100">
+                <path d="M10,50 C50,10 50,90 100,50" fill="none" stroke="#1a3c5e" stroke-width="1.5"/>
+            </svg>
+
+            <div class="polaroid-wrapper">
+                <div class="polaroid">
+                    <img src="IMG_0084.jpeg" alt="Foto Mariana">
+                </div>
+            </div>
+
+            <div class="about-text">
+                <p class="bio-p">
+                    Soy una estudiante de Diseño Gráfico, interesada en la comunicación visual, la ilustración y la creatividad. Me encuentro en constante aprendizaje, explorando distintas áreas del diseño con el fin de lograr conectar de manera estética y funcional.
+                </p>
+
+                <div class="contact-section">
+                    <h4>contacto</h4>
+                    <div class="contact-info">
+                        <div>✉ marialex_aas@hotmail.com</div>
+                        <div>📞 55 2104 5149</div>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h4>habilidades técnicas</h4>
+                    <div class="skills-icons">
+                        <div class="skill-box" style="background:#ff9a00;">Ai</div>
+                        <div class="skill-box" style="background:#31a8ff;">Ps</div>
+                        <div class="skill-box" style="background:#e85890;">Id</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- EDITORIAL -->
-    <section class="editorial">
-        <h2>EDITORIAL</h2>
-        <p>Aquí irán tus proyectos editoriales.</p>
+    <section id="content">
+        <svg class="decoration-line" style="left:0; bottom:10%; height:300px; width:100px;" viewBox="0 0 50 200">
+            <path d="M0,200 Q50,100 0,0" fill="none" stroke="#1a3c5e" stroke-width="2"/>
+        </svg>
+
+        <div class="content-wrapper">
+            <h2 class="section-title">CONTENIDO</h2>
+            
+            <div class="toc-list">
+                <div class="toc-item">
+                    <span class="dot"></span> Información
+                </div>
+                <div class="toc-item">
+                    <span class="dot"></span> Editorial
+                </div>
+                <div class="toc-item">
+                    <span class="dot"></span> Ilustraciones
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="editorial">
+        <svg class="line-decoration-left" viewBox="0 0 100 400">
+            <path d="M0,400 Q100,200 0,0" fill="none" stroke="#1a3c5e" stroke-width="2"/>
+        </svg>
+
+        <h2 class="editorial-huge">EDITORIAL</h2>
     </section>
 
 </body>
