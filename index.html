@@ -138,9 +138,12 @@
         }
 
         .polaroid {
-            box-shadow: 5px 10px 15px rgba(0,0,0,0.15); /* Mantenemos la sombrita para que resalte */
+            background: transparent !important; /* ¡Obliga a ser transparente! */
+            padding: 0 !important; /* ¡Obliga a no tener marco! */
+            box-shadow: 5px 10px 15px rgba(0,0,0,0.15);
             width: 100%;
             max-width: 300px;
+            border: none;
         }
 
         .polaroid img {
