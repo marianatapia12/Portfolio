@@ -139,10 +139,10 @@
 
         .polaroid {
             background: white;
-            padding: 15px 15px 50px 15px; /* Padding inferior más grande para efecto polaroid */
+            padding: 15px 15px 50px 15px; 
             box-shadow: 5px 10px 15px rgba(0,0,0,0.15);
             width: 100%;
-            max-width: 300px;
+            max-width: 250px; /* CAMBIO AQUÍ: Hacemos la foto más pequeña (antes era 300px) */
         }
 
         .polaroid img {
@@ -167,6 +167,7 @@
             top: -80px;
             left: 0;
             width: 100%;
+            z-index: 3; /* CAMBIO AQUÍ: Aseguramos que el texto esté encima de la foto */
         }
 
         .bio-p {
@@ -487,7 +488,7 @@
             </div>
             
             <svg class="decoration-line" style="bottom:-20px; left:0; width:150px;" viewBox="0 0 100 50">
-                <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#1a3c5e" stroke-width="2"/>
+                <path d="M0,50 Q40,0 50,50 T100,50" fill="none" stroke="#1a3c5e" stroke-width="2"/>
             </svg>
         </div>
     </section>
@@ -500,7 +501,7 @@
                 <path d="M10,50 C50,10 50,90 100,50" fill="none" stroke="#1a3c5e" stroke-width="1.5"/>
             </svg>
 
-          <div class="polaroid-wrapper">
+            <div class="polaroid-wrapper">
                 <div class="polaroid">
                     <img src="A98DB6EC-D4E6-442A-8010-B67941CA0F7C.jpeg" alt="Foto Mariana">
                 </div>
@@ -559,7 +560,9 @@
         </svg>
 
         <h2 class="editorial-huge">EDITORIAL</h2>
-    </section> <section class="project-section" id="fish-project">
+    </section>
+
+    <section class="project-section" id="fish-project">
         <img src="TU_IMAGEN_BANNER_PECES.jpg" alt="Banner Peces" class="fish-banner">
 
         <div class="fish-grid">
